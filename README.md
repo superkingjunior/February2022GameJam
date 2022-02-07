@@ -1,2 +1,2 @@
 # February2022GameJam
-GameJam with Eric and Charlie
+GameJam with Eric, Charlie and Basel
