@@ -46,7 +46,7 @@ public class Button : MonoBehaviour
                 rb2d.AddForce(new Vector2(-mvmForce, 0));
             }
         }
-        if (allowed[0] && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)))
+        if (allowed[0] && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * orientation, 0.7f);
             if (hit.collider != null)
@@ -54,7 +54,7 @@ public class Button : MonoBehaviour
                 Jump();
             }
         }
-        if(allowed[2] && (Input.GetKeyDown(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
+        if(allowed[2] && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * orientation, 0.7f, 1 << LayerMask.NameToLayer("Dotted"));
             if(hit.collider != null)

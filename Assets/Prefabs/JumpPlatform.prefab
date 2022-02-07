@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7497368229043503643}
   - component: {fileID: -8790668490075030198}
   m_Layer: 0
-  m_Name: JumpPlatform (1) 1
+  m_Name: JumpPlatform
   m_TagString: JumpPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
