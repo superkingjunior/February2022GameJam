@@ -19,34 +19,48 @@ public class Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        allowed = new bool[3]; //D A Space
+        allowed = new bool[4]; //W A S D
         allowed[0] = true;
         allowed[1] = true;
         allowed[2] = true;
+        allowed[3] = true;
         rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Mathf.Abs(rb2d.velocity.x) < maxSpeed)
+        CheckMovement();
+    }
+
+    void CheckMovement()
+    {
+        if (Mathf.Abs(rb2d.velocity.x) < maxSpeed)
         {
-            if (allowed[0] && Input.GetKey(KeyCode.D))
+            if (allowed[3] && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
             {
                 rb2d.AddForce(new Vector2(mvmForce, 0));
             }
-            if (allowed[1] && Input.GetKey(KeyCode.A))
+            if (allowed[1] && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
             {
                 rb2d.AddForce(new Vector2(-mvmForce, 0));
             }
         }
-        if (allowed[2] && Input.GetKeyDown(KeyCode.Space))
+        if (allowed[0] && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * orientation, 0.7f);
+            if (hit.collider != null)
+            {
+                Jump();
+            }
+        }
+        if(allowed[2] && (Input.GetKeyDown(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * orientation, 0.7f, 1 << LayerMask.NameToLayer("Dotted"));
             if(hit.collider != null)
             {
-                Debug.Log(hit.collider.name);
-                rb2d.AddForce(new Vector2(0, jmpForce * orientation));
+                DottedPlatform platform = hit.collider.gameObject.GetComponent<DottedPlatform>();
+                platform.Ghost();
             }
         }
     }
@@ -55,5 +69,10 @@ public class Button : MonoBehaviour
     {
         rb2d.gravityScale *= -1;
         orientation *= -1;
+    }
+
+    public void Jump()
+    {
+        rb2d.AddForce(new Vector2(0, jmpForce * orientation));
     }
 }
