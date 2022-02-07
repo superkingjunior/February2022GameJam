@@ -35,12 +35,15 @@ public class Button : MonoBehaviour
 
     void CheckMovement()
     {
-        if (Mathf.Abs(rb2d.velocity.x) < maxSpeed)
+        if (rb2d.velocity.x < maxSpeed)
         {
             if (allowed[3] && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
             {
                 rb2d.AddForce(new Vector2(mvmForce, 0));
             }
+        }
+        if (rb2d.velocity.x > -maxSpeed)
+        {
             if (allowed[1] && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
             {
                 rb2d.AddForce(new Vector2(-mvmForce, 0));
