@@ -6,8 +6,6 @@ public class MovingPlatform : MonoBehaviour
 {
     public Rigidbody2D myRb2D;
 
-    public float speedX;
-    public float speedY;
     Vector2 vel;
 
     // the time platform would take to move in one direction
