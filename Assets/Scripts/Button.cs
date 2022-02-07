@@ -8,6 +8,10 @@ public class Button : MonoBehaviour
     public float mvmForce;
     public float jmpForce;
 
+    public float maxSpeed;
+
+    private int orientation = 1;
+
     private bool[] allowed;
 
     private Rigidbody2D rb2d;
@@ -25,7 +29,7 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Mathf.Abs(rb2d.velocity.x) < 10)
+        if(Mathf.Abs(rb2d.velocity.x) < maxSpeed)
         {
             if (allowed[0] && Input.GetKey(KeyCode.D))
             {
@@ -38,12 +42,18 @@ public class Button : MonoBehaviour
         }
         if (allowed[2] && Input.GetKeyDown(KeyCode.Space))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.7f);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * orientation, 0.7f);
             if(hit.collider != null)
             {
                 Debug.Log(hit.collider.name);
-                rb2d.AddForce(new Vector2(0, jmpForce));
+                rb2d.AddForce(new Vector2(0, jmpForce * orientation));
             }
         }
+    }
+
+    public void ReverseGravity()
+    {
+        rb2d.gravityScale *= -1;
+        orientation *= -1;
     }
 }
