@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8894218460776536866}
   - component: {fileID: 8894218460776536867}
   - component: {fileID: 5939345673856008912}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e8209815eb674fc44aa7dd2fb12736d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -135,4 +135,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mvmForce: 1
-  jmpForce: 300
+  jmpForce: 500
