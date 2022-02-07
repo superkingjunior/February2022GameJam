@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 5084334618010245182, guid: 1e4ae537ed1ba5f4ca5dc28315c986b1, type: 3}
+      propertyPath: m_TagString
+      value: MovingPlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -414123220872876720, guid: 1e4ae537ed1ba5f4ca5dc28315c986b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1e4ae537ed1ba5f4ca5dc28315c986b1, type: 3}
@@ -73,7 +77,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 3817792138657153713}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
