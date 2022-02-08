@@ -43,7 +43,7 @@ public class Enemies : MonoBehaviour
         // if enemy hitts button the game resets
         if(col.gameObject.CompareTag("Button")){
             Button button = col.gameObject.GetComponent<Button>();
-            //button.Reset();
+            button.Reset();
             print("button hit enemies");
         }
         // if enemy hits another object then it switch direction
@@ -59,7 +59,7 @@ public class Enemies : MonoBehaviour
 		Vector2 target = this.transform.position + new Vector3(0,-1.5f,0);
 		Vector2 direction = target - origin;
 		RaycastHit2D hit = Physics2D.Raycast(origin, direction, direction.magnitude);
-        Debug.DrawRay(origin,direction,Color.red, 10f);
+        //Debug.DrawRay(origin,direction,Color.red, 10f);
 		if(hit.collider!= null){
             //print("on platform");
 			return true;
