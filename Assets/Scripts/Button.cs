@@ -44,14 +44,14 @@ public class Button : MonoBehaviour
         {
             if (allowed[3] && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
             {
-                rb2d.AddForce(new Vector2(mvmForce, 0) * orientationLR);
+                rb2d.AddForce(new Vector2(mvmForce, 0) * orientationLR * Time.deltaTime);
             }
         }
         if ((orientationLR == -1 && rb2d.velocity.x < maxSpeed) || (orientationLR == 1 && rb2d.velocity.x > -maxSpeed))
         {
             if (allowed[1] && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
             {
-                rb2d.AddForce(new Vector2(-mvmForce, 0) * orientationLR);
+                rb2d.AddForce(new Vector2(-mvmForce, 0) * orientationLR * Time.deltaTime);
             }
         }
         if (allowed[0] && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))

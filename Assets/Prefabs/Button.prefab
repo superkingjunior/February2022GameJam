@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de582b7fcaa27b247886316a4256fade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mvmForce: 18
+  mvmForce: 500
   jmpForce: 600
-  maxSpeed: 12
+  maxSpeed: 10
   allowed: 
 --- !u!82 &-6084708910145554817
 AudioSource:
