@@ -47,9 +47,13 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3543141869730326014, guid: a270adea3cb8a294c9a6177109d18b39, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6065800914180443572, guid: a270adea3cb8a294c9a6177109d18b39, type: 3}
       propertyPath: m_Name
-      value: SmallRamp (2)
+      value: SmallRamp (2) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8496735794907567077, guid: a270adea3cb8a294c9a6177109d18b39, type: 3}
       propertyPath: m_RootOrder
