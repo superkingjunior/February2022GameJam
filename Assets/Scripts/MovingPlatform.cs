@@ -23,25 +23,27 @@ public class MovingPlatform : MonoBehaviour
         timer -= Time.deltaTime;
         vel = myRb2D.velocity;
         Vector2 normalizedDir = myRb2D.velocity.normalized;
-        if(transform.position.x < -7){
+        if(transform.position.x < -2){
             vel.x = -vel.x;
             myRb2D.velocity = vel;
         }
-        if(transform.position.x > 7){
+        if(transform.position.x > 2){
             vel.x = -vel.x;
             myRb2D.velocity = vel;
         }
-        if(transform.position.y < -2){
+        if(transform.position.y < -3){
             vel.y = -vel.y;
             myRb2D.velocity = vel;
         }
-        if(transform.position.y > 2){
+        if(transform.position.y > 3){
             vel.y = -vel.y;
             myRb2D.velocity = vel;
         }
         if(timer <= 0){
-        vel.x = Random.Range(-2,2);
-        vel.y = Random.Range(-2,2);
+        while(vel.x==0)
+            vel.x = Random.Range(-1,1);
+        while(vel.y==0)
+            vel.y = Random.Range(-1,1);
         timer = 1;
         myRb2D.velocity = vel;}
         
