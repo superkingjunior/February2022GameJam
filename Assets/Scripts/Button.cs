@@ -33,7 +33,7 @@ public class Button : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Reset();
         }
         CheckMovement();
     }
@@ -87,5 +87,10 @@ public class Button : MonoBehaviour
     public void Flip()
     {
         orientationLR *= -1;
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
