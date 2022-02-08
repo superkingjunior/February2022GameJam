@@ -42,6 +42,14 @@ public class MovingPlatform : MonoBehaviour
 		RaycastHit2D hitLeft = Physics2D.Raycast(origin, directionLeft, directionLeft.magnitude);
         Debug.DrawRay(origin,directionLeft,Color.yellow, 10f);
         if(hitRight.collider!= null || hitLeft.collider!=null){
+            var pos = new Vector3(transform.position.x,transform.position.y, 0);
+            if(vel.x > 0){
+                pos.x = transform.position.x -0.1f;
+            }
+            else{
+                pos.x = transform.position.x +0.1f;
+            }
+            transform.position = pos;
             vel.x = -vel.x;
             myRb2D.velocity = vel;
 		}
