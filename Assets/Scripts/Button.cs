@@ -22,10 +22,10 @@ public class Button : MonoBehaviour
     void Start()
     {
         allowed = new bool[4]; //W A S D
-        allowed[0] = true;
-        allowed[1] = true;
-        allowed[2] = true;
-        allowed[3] = true;
+        //allowed[0] = true;
+        //allowed[1] = true;
+        //allowed[2] = true;
+        //allowed[3] = true;
         rb2d = GetComponent<Rigidbody2D>();
     }
 
