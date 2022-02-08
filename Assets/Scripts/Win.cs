@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
-    public Scene scene;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class Win : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Button"))
         {
-            SceneManager.LoadScene(scene.name);
+            SceneManager.LoadScene("WinScene");
         }
             
     }
