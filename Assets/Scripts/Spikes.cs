@@ -9,7 +9,7 @@ public class Spikes : MonoBehaviour
         if(col.gameObject.CompareTag("Button")){
             print("Button hit spikes");
             Button button = col.gameObject.GetComponent<Button>();
-            //button.kill()
+            button.Reset();
         }
     }
 }
