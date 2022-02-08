@@ -84,6 +84,11 @@ public class Button : MonoBehaviour
         rb2d.AddForce(new Vector2(0, jmpForce * orientationUD));
     }
 
+    public void Jump(float force)
+    {
+        rb2d.AddForce(new Vector2(0, force * orientationUD));
+    }
+
     public void Flip()
     {
         orientationLR *= -1;
