@@ -32,6 +32,8 @@ public class Enemies : MonoBehaviour
         }
         // if enemy is getting off platform then switch direction
         if(!OnPlatform()){
+            var posX = new Vector3(transform.position.x -0.1f,transform.position.y, 0);
+            
             vel.x = -vel.x;
         }
         myRb2D.velocity = vel;
@@ -54,13 +56,15 @@ public class Enemies : MonoBehaviour
     bool OnPlatform()
      {
         Vector2 origin = this.transform.position+ new Vector3(0,-0.8f,0);
-		Vector2 target = this.transform.position + new Vector3(0,-1.1f,0);
+		Vector2 target = this.transform.position + new Vector3(0,-1.5f,0);
 		Vector2 direction = target - origin;
 		RaycastHit2D hit = Physics2D.Raycast(origin, direction, direction.magnitude);
-        
+        Debug.DrawRay(origin,direction,Color.red, 10f);
 		if(hit.collider!= null){
+            //print("on platform");
 			return true;
 		}
+        print("off platform");
         return false;
      }
 }

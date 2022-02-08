@@ -40,10 +40,9 @@ public class MovingPlatform : MonoBehaviour
             myRb2D.velocity = vel;
         }
         if(timer <= 0){
-        while(vel.x==0)
-            vel.x = Random.Range(-1,1);
-        while(vel.y==0)
-            vel.y = Random.Range(-1,1);
+        
+        vel.x = Random.Range(-1,1);
+        vel.y = Random.Range(-1,1);
         timer = 1;
         myRb2D.velocity = vel;}
         
@@ -54,7 +53,7 @@ public class MovingPlatform : MonoBehaviour
             // A line that updates flapping force of obj in case of bouncing
             print("Collision with dynamic platform");
         }
-        if(col.gameObject.CompareTag("StaticPlatform")){
+        else{
             vel.x = -vel.x;
             vel.y = -vel.y;
             myRb2D.velocity = vel;
