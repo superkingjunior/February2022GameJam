@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Button : MonoBehaviour
     private int orientationUD = 1;
     private int orientationLR = 1;
 
-    private bool[] allowed;
+    public bool[] allowed;
 
     private Rigidbody2D rb2d;
 
@@ -31,6 +32,9 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R)){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         CheckMovement();
     }
 
