@@ -65,15 +65,15 @@ public class MovingPlatform : MonoBehaviour
         Debug.DrawRay(origin,directionUp,Color.green, 10f);
 
         // check right
-        origin = this.transform.position+ new Vector3(7,0,0);
-		Vector2 targetRight = this.transform.position + new Vector3(8,0,0);
+        origin = this.transform.position+ new Vector3(1.7f,0,0);
+		Vector2 targetRight = this.transform.position + new Vector3(3,0,0);
 		Vector2 directionRight = targetRight - origin;
 		RaycastHit2D hitRight = Physics2D.Raycast(origin, directionRight, directionUp.magnitude);
         Debug.DrawRay(origin,directionRight,Color.blue, 10f);
 
         // check left
-        origin = this.transform.position+ new Vector3(-7,0,0);
-		Vector2 targetLeft = this.transform.position + new Vector3(-8,0,0);
+        origin = this.transform.position+ new Vector3(-1.7f,0,0);
+		Vector2 targetLeft = this.transform.position + new Vector3(-3,0,0);
 		Vector2 directionLeft = targetLeft - origin;
 		RaycastHit2D hitLeft = Physics2D.Raycast(origin, directionLeft, directionUp.magnitude);
         Debug.DrawRay(origin,directionLeft,Color.yellow, 10f);
