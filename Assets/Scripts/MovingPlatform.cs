@@ -40,9 +40,7 @@ public class MovingPlatform : MonoBehaviour
             myRb2D.velocity = vel;
         }
         if(timer <= 0){
-        //while(vel.x==0){
         vel.x = Random.Range(-2,2);
-        //while(vel.y==0){
         vel.y = Random.Range(-2,2);
         timer = 1;
         myRb2D.velocity = vel;}

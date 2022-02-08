@@ -13,12 +13,6 @@ public class DottedPlatform : MonoBehaviour
         bc2d = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Ghost()
     {
         bc2d.isTrigger = true;
