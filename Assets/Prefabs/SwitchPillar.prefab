@@ -128,4 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a247a2d116b3435459f8b4927e7daf45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyOnImpact: 0
+  destroyOnImpact: 1
