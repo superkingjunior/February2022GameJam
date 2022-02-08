@@ -14,18 +14,18 @@ public class Button : MonoBehaviour
     private int orientationUD = 1;
     private int orientationLR = 1;
 
-    public bool[] allowed;
+    public bool[] allowed = new bool[4];
 
     private Rigidbody2D rb2d;
 
     // Start is called before the first frame update
     void Start()
     {
-        allowed = new bool[4]; //W A S D
-        //allowed[0] = true;
-        //allowed[1] = true;
-        //allowed[2] = true;
-        //allowed[3] = true;
+        //allowed = new bool[4]; //W A S D
+        // allowed[0] = true;
+        // allowed[1] = true;
+        // allowed[2] = true;
+        // allowed[3] = true;
         rb2d = GetComponent<Rigidbody2D>();
     }
 
