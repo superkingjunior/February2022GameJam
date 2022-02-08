@@ -10,7 +10,8 @@ public class Button : MonoBehaviour
 
     public float maxSpeed;
 
-    private int orientation = 1;
+    private int orientationUD = 1;
+    private int orientationLR = 1;
 
     private bool[] allowed;
 
@@ -35,23 +36,23 @@ public class Button : MonoBehaviour
 
     void CheckMovement()
     {
-        if (rb2d.velocity.x < maxSpeed)
+        if ((orientationLR == 1 && rb2d.velocity.x < maxSpeed) || (orientationLR == -1 && rb2d.velocity.x > -maxSpeed))
         {
             if (allowed[3] && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
             {
-                rb2d.AddForce(new Vector2(mvmForce, 0));
+                rb2d.AddForce(new Vector2(mvmForce, 0) * orientationLR);
             }
         }
-        if (rb2d.velocity.x > -maxSpeed)
+        if ((orientationLR == -1 && rb2d.velocity.x < maxSpeed) || (orientationLR == 1 && rb2d.velocity.x > -maxSpeed))
         {
             if (allowed[1] && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
             {
-                rb2d.AddForce(new Vector2(-mvmForce, 0));
+                rb2d.AddForce(new Vector2(-mvmForce, 0) * orientationLR);
             }
         }
         if (allowed[0] && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * orientation, 0.7f);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * orientationUD, 0.7f);
             if (hit.collider != null)
             {
                 Jump();
@@ -59,7 +60,7 @@ public class Button : MonoBehaviour
         }
         if(allowed[2] && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * orientation, 0.7f, 1 << LayerMask.NameToLayer("Dotted"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * orientationUD, 0.7f, 1 << LayerMask.NameToLayer("Dotted"));
             if(hit.collider != null)
             {
                 DottedPlatform platform = hit.collider.gameObject.GetComponent<DottedPlatform>();
@@ -71,11 +72,16 @@ public class Button : MonoBehaviour
     public void ReverseGravity()
     {
         rb2d.gravityScale *= -1;
-        orientation *= -1;
+        orientationUD *= -1;
     }
 
     public void Jump()
     {
-        rb2d.AddForce(new Vector2(0, jmpForce * orientation));
+        rb2d.AddForce(new Vector2(0, jmpForce * orientationUD));
+    }
+
+    public void Flip()
+    {
+        orientationLR *= -1;
     }
 }
