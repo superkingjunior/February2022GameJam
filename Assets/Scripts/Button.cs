@@ -98,4 +98,12 @@ public class Button : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void activate(int id)
+    {
+        if(id < 4)
+        {
+            allowed[id] = true;
+        }
+    }
 }
